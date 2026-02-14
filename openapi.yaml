@@ -1,23 +1,26 @@
 openapi: 3.0.4
 info:
   title: JSON Schema Generator
-  description: JSON Schema Generator is a tool for automatically generating JSON schemas from sample JSON data. It creates Draft-07 compatible schemas with type inference and format detection.
+  description: >-
+    JSON Schema Generator is a tool for automatically generating JSON schemas
+    from sample JSON data. It creates Draft-07 compatible schemas with type
+    inference and format detection.
   termsOfService: https://apiverve.com/terms/
   contact:
     name: APIVerve Support
     email: hello@apiverve.com
     url: https://apiverve.com/contact
-  version: 1.0.9
+  version: 1.0.0
 externalDocs:
   description: Learn more about APIVerve
   url: https://docs.apiverve.com?utm_source=openapi
 servers:
-- url: https://api.apiverve.com/
+  - url: https://api.apiverve.com/
 paths:
   /v1/jsonschemagenerator:
     post:
       summary: Generate JSON Schema
-      description: JSON Schema Generator is a tool for automatically generating JSON schemas from sample JSON data. It creates Draft-07 compatible schemas with type inference and format detection.
+      description: Generate a JSON schema from sample JSON data
       operationId: jsonschemagenerator
       parameters: []
       responses:
@@ -35,42 +38,36 @@ paths:
                     type: string
                     description: error
                   data:
-                    type: string
+                    type: object
                     description: data
               example:
                 status: ok
-                error: 
+                error: null
                 data:
-                  schema:
-                    $schema: http://json-schema.org/draft-07/schema#
-                    title: User Schema
-                    type: object
-                    properties:
-                      name:
-                        type: string
-                      age:
-                        type: integer
-                      email:
-                        type: string
-                        format: email
-                      active:
-                        type: boolean
-                    required:
+                  $schema: http://json-schema.org/draft-07/schema#
+                  title: User Schema
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    age:
+                      type: integer
+                    email:
+                      type: string
+                      format: email
+                    active:
+                      type: boolean
+                  required:
                     - name
                     - age
                     - email
                     - active
-                  sample_data:
-                    name: John Doe
-                    age: 30
-                    email: john@example.com
-                    active: true
         '401':
           description: Your request was not authorized, or your API Key was invalid
         '404':
           description: Requested resource was not found
         '500':
-          description: A server error has occured, try again later
+          description: A server error has occurred, try again later
       requestBody:
         required: true
         content:
@@ -79,30 +76,18 @@ paths:
               type: object
               properties:
                 json:
-                  type: object
+                  type: string
                   description: The sample JSON data to generate a schema from
-                  example:
-                    name: John Doe
-                    age: 30
-                    email: john@example.com
-                    active: true
                 title:
                   type: string
-                  description: "The title for the generated schema (default: 'Generated Schema')"
-                  default: Generated Schema
-                  example: User Schema
+                  description: >-
+                    The title for the generated schema (default: 'Generated
+                    Schema')
                 description:
                   type: string
                   description: Optional description for the schema
               required:
-              - json
-              example:
-                json:
-                  name: John Doe
-                  age: 30
-                  email: john@example.com
-                  active: true
-                title: User Schema
+                - json
 components:
   securitySchemes:
     api_key:
@@ -110,4 +95,11 @@ components:
       name: x-api-key
       in: header
 security:
-- api_key: []
+  - api_key: []
+sampleRequest:
+  json:
+    name: John Doe
+    age: 30
+    email: john@example.com
+    active: true
+  title: User Schema
