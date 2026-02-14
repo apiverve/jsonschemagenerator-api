@@ -9,28 +9,15 @@ const API_KEY = process.env.APIVERVE_API_KEY || 'YOUR_API_KEY_HERE';
 const API_URL = 'https://api.apiverve.com/v1/jsonschemagenerator';
 
 /**
- * Make a POST request to the JSON Schema Generator API
+ * Make a GET request to the JSON Schema Generator API
  */
 async function callJSONSchemaGeneratorAPI() {
   try {
-    // Request body
-    const requestBody &#x3D; {
-    &quot;json&quot;: {
-        &quot;name&quot;: &quot;John Doe&quot;,
-        &quot;age&quot;: 30,
-        &quot;email&quot;: &quot;john@example.com&quot;,
-        &quot;active&quot;: true
-    },
-    &quot;title&quot;: &quot;User Schema&quot;
-};
-
     const response = await fetch(API_URL, {
-      method: 'POST',
+      method: 'GET',
       headers: {
-        'x-api-key': API_KEY,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(requestBody)
+        'x-api-key': API_KEY
+      }
     });
 
     // Check if response is successful
