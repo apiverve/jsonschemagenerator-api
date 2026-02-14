@@ -1,16 +1,21 @@
-# JSON Schema Generator API
+# [JSON Schema Generator API](https://apiverve.com/marketplace/jsonschemagenerator?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
 
-> JSON Schema Generator is a tool for automatically generating JSON schemas from sample JSON data. It creates Draft-07 compatible schemas with type inference and format detection.
+JSON Schema Generator is a tool for automatically generating JSON schemas from sample JSON data. It creates Draft-07 compatible schemas with type inference and format detection.
+
+The JSON Schema Generator API provides a simple, reliable way to integrate json schema generator functionality into your applications. Built for developers who need production-ready json schema generator capabilities without the complexity of building from scratch.
+
+**[View API Details →](https://apiverve.com/marketplace/jsonschemagenerator?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![API Status](https://img.shields.io/badge/Status-Active-green.svg)](https://apiverve.com)
-[![Method](https://img.shields.io/badge/Method-POST-blue.svg)](#)
+[![API Status](https://img.shields.io/badge/Status-Active-green.svg)](https://apiverve.com/marketplace/jsonschemagenerator?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+[![Method](https://img.shields.io/badge/Method-GET-blue.svg)](#)
 [![Platform](https://img.shields.io/badge/Platform-Multi--Platform-orange.svg)](#installation)
 
 **Available on:**
 [![npm](https://img.shields.io/badge/npm-CB3837?style=flat&logo=npm&logoColor=white)](https://www.npmjs.com/package/@apiverve/jsonschemagenerator)
 [![NuGet](https://img.shields.io/badge/NuGet-004880?style=flat&logo=nuget&logoColor=white)](https://www.nuget.org/packages/APIVerve.API.JSONSchemaGenerator)
 [![PyPI](https://img.shields.io/badge/PyPI-3776AB?style=flat&logo=python&logoColor=white)](https://pypi.org/project/apiverve-jsonschemagenerator/)
+[![Go](https://img.shields.io/badge/Go-00ADD8?style=flat&logo=go&logoColor=white)](#-go)
 [![JitPack](https://img.shields.io/badge/JitPack-2E7D32?style=flat&logo=android&logoColor=white)](#-android-jitpack)
 
 ---
@@ -22,23 +27,11 @@
 ```javascript
 async function callJSONSchemaGeneratorAPI() {
     try {
-        const requestBody = {
-    "json": {
-        "name": "John Doe",
-        "age": 30,
-        "email": "john@example.com",
-        "active": true
-    },
-    "title": "User Schema"
-};
-
         const response = await fetch('https://api.apiverve.com/v1/jsonschemagenerator', {
-            method: 'POST',
+            method: 'GET',
             headers: {
-                'x-api-key': 'YOUR_API_KEY_HERE',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(requestBody)
+                'x-api-key': 'YOUR_API_KEY_HERE'
+            }
         });
 
         const data = await response.json();
@@ -54,12 +47,8 @@ callJSONSchemaGeneratorAPI();
 ### Using cURL
 
 ```bash
-curl -X POST "https://api.apiverve.com/v1/jsonschemagenerator" \
-  -H "x-api-key: YOUR_API_KEY_HERE" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "param": "value"
-  }'
+curl -X GET "https://api.apiverve.com/v1/jsonschemagenerator?param=value" \
+  -H "x-api-key: YOUR_API_KEY_HERE"
 ```
 
 **Get your API key:** [https://apiverve.com](https://apiverve.com)
@@ -112,30 +101,45 @@ implementation 'com.github.apiverve:jsonschemagenerator-api:1.0.0'
 
 ---
 
-## Features
+### 🐹 Go
 
-✅ **Multi-platform support** - Use the same API across Node.js, .NET, Python, Android, and browsers
-✅ **Simple authentication** - Just add your API key in the request header
-✅ **Comprehensive documentation** - Full examples and API reference available
-✅ **Production-ready** - Used by developers worldwide
+```bash
+go get github.com/apiverve/jsonschemagenerator-api/go
+```
+
+[**Package Code →**](./go/)
+
+---
+
+## Why Use This API?
+
+| Feature | Benefit |
+|---------|---------|
+| **Multi-language SDKs** | Native packages for JavaScript, Python, C#, Go, and Android |
+| **Simple Integration** | Single API key authentication, consistent response format |
+| **Production Ready** | 99.9% uptime, fast response times, used by thousands of developers |
+| **Comprehensive Docs** | Full examples, OpenAPI spec, and dedicated support |
 
 ---
 
 ## Documentation
 
-📚 **Full API Documentation:** [https://docs.apiverve.com/ref/jsonschemagenerator](https://docs.apiverve.com/ref/jsonschemagenerator)
+- 🏠 **API Home:** [JSON Schema Generator API](https://apiverve.com/marketplace/jsonschemagenerator?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+- 📚 **API Reference:** [docs.apiverve.com/ref/jsonschemagenerator](https://docs.apiverve.com/ref/jsonschemagenerator)
+- 📖 **OpenAPI Spec:** [openapi.yaml](./openapi.yaml)
+- 💡 **Examples:** [examples/](./examples/)
 
 ---
 
-## Use Cases
+## What Can You Build?
 
-Common use cases for the JSON Schema Generator API:
+The JSON Schema Generator API is commonly used for:
 
-- ✅ Integration into web applications
-- ✅ Mobile app development
-- ✅ Data analysis and reporting
-- ✅ Automation workflows
-- ✅ Microservices architecture
+- **Web Applications** - Add json schema generator features to your frontend or backend
+- **Mobile Apps** - Native SDKs for iOS and Android development
+- **Automation** - Integrate with n8n, Zapier, or custom workflows
+- **SaaS Products** - Enhance your product with json schema generator capabilities
+- **Data Pipelines** - Process and analyze data at scale
 
 ---
 
@@ -162,6 +166,7 @@ All responses are JSON with this structure:
 
 ## Support & Community
 
+- 🏠 **API Home**: [JSON Schema Generator API](https://apiverve.com/marketplace/jsonschemagenerator?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
 - 💬 **Support**: [https://apiverve.com/contact](https://apiverve.com/contact)
 - 🐛 **Issues**: [GitHub Issues](../../issues)
 - 📖 **Documentation**: [https://docs.apiverve.com](https://docs.apiverve.com)
@@ -191,4 +196,4 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 Built with ❤️ by [APIVerve](https://apiverve.com)
 
-Copyright © 2025 APIVerve. All rights reserved.
+Copyright © 2026 APIVerve. All rights reserved.
