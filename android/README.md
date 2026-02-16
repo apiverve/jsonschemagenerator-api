@@ -26,7 +26,7 @@ Add the dependency:
 
 ```gradle
 dependencies {
-    implementation 'com.github.apiverve:jsonschemagenerator-api:1.1.13'
+    implementation 'com.github.apiverve:jsonschemagenerator-api:1.1.14'
 }
 ```
 
@@ -47,8 +47,8 @@ JSONSchemaGeneratorAPIClient client = new JSONSchemaGeneratorAPIClient("YOUR_API
 try {
     // Prepare request parameters
     Map<String, Object> parameters = new HashMap<>();
-    parameters.put("json", "{\"name\":\"John\",\"age\":30,\"email\":\"john@example.com\"}");
-    parameters.put("title", "Generated Schema");
+    parameters.put("json", "[object Object]");
+    parameters.put("title", "User Schema");
     parameters.put("description", "Schema for user data");
 
     // Execute the request
