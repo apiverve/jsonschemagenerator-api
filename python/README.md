@@ -44,7 +44,10 @@ from apiverve_jsonschemagenerator.apiClient import JsonschemageneratorAPIClient
 # Initialize the client with your APIVerve API key
 api = JsonschemageneratorAPIClient("[YOUR_API_KEY]")
 
-query = { "json": { "name": "John Doe", "age": 30, "email": "john@example.com", "active": true }, "title": "User Schema" }
+query = {
+    "json": {"name":"John Doe","age":30,"email":"john@example.com","active":true},
+    "title": "User Schema"
+}
 
 try:
     # Make the API call
@@ -82,7 +85,10 @@ Using the API client, you can perform requests to the API.
 ###### Define Query
 
 ```python
-query = { "json": { "name": "John Doe", "age": 30, "email": "john@example.com", "active": true }, "title": "User Schema" }
+query = {
+    "json": {"name":"John Doe","age":30,"email":"john@example.com","active":true},
+    "title": "User Schema"
+}
 ```
 
 ###### Simple Request
@@ -151,7 +157,10 @@ from apiverve_jsonschemagenerator.apiClient import JsonschemageneratorAPIClient,
 
 api = JsonschemageneratorAPIClient("[YOUR_API_KEY]")
 
-query = { "json": { "name": "John Doe", "age": 30, "email": "john@example.com", "active": true }, "title": "User Schema" }
+query = {
+    "json": {"name":"John Doe","age":30,"email":"john@example.com","active":true},
+    "title": "User Schema"
+}
 
 try:
     result = api.execute(query)
@@ -172,7 +181,10 @@ from apiverve_jsonschemagenerator.apiClient import JsonschemageneratorAPIClient,
 
 api = JsonschemageneratorAPIClient("[YOUR_API_KEY]")
 
-query = { "json": { "name": "John Doe", "age": 30, "email": "john@example.com", "active": true }, "title": "User Schema" }
+query = {
+    "json": {"name":"John Doe","age":30,"email":"john@example.com","active":true},
+    "title": "User Schema"
+}
 
 try:
     result = api.execute(query)
@@ -206,7 +218,10 @@ The client supports the context manager protocol for automatic resource cleanup:
 ```python
 from apiverve_jsonschemagenerator.apiClient import JsonschemageneratorAPIClient, JsonschemageneratorAPIClientError
 
-query = { "json": { "name": "John Doe", "age": 30, "email": "john@example.com", "active": true }, "title": "User Schema" }
+query = {
+    "json": {"name":"John Doe","age":30,"email":"john@example.com","active":true},
+    "title": "User Schema"
+}
 
 # Using context manager ensures proper cleanup
 with JsonschemageneratorAPIClient("[YOUR_API_KEY]") as api:
@@ -232,7 +247,10 @@ from apiverve_jsonschemagenerator.apiClient import JsonschemageneratorAPIClient
 # Enable debug mode
 api = JsonschemageneratorAPIClient("[YOUR_API_KEY]", debug=True)
 
-query = { "json": { "name": "John Doe", "age": 30, "email": "john@example.com", "active": true }, "title": "User Schema" }
+query = {
+    "json": {"name":"John Doe","age":30,"email":"john@example.com","active":true},
+    "title": "User Schema"
+}
 
 # Debug information will be printed to console
 result = api.execute(query)
@@ -247,8 +265,12 @@ from apiverve_jsonschemagenerator.apiClient import JsonschemageneratorAPIClient
 
 api = JsonschemageneratorAPIClient("[YOUR_API_KEY]")
 
+query = {
+    "json": {"name":"John Doe","age":30,"email":"john@example.com","active":true},
+    "title": "User Schema"
+}
+
 try:
-    query = { "json": { "name": "John Doe", "age": 30, "email": "john@example.com", "active": true }, "title": "User Schema" }
     result = api.execute(query)
     print(result)
 finally:
