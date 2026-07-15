@@ -4,32 +4,32 @@ declare module '@apiverve/jsonschemagenerator' {
     secure?: boolean;
   }
 
+  /**
+   * Describes fields the current plan does not unlock. Locked fields arrive as null
+   * in `data`; `locked_fields` names them, using dot paths for nested fields.
+   * Absent when the plan unlocks everything.
+   */
+  export interface PremiumInfo {
+    message: string;
+    upgrade_url: string;
+    locked_fields: string[];
+  }
+
   export interface jsonschemageneratorResponse {
     status: string;
     error: string | null;
     data: JSONSchemaGeneratorData;
     code?: number;
+    premium?: PremiumInfo;
   }
 
 
   interface JSONSchemaGeneratorData {
-      schema:     Schema;
-      sampleData: SampleData;
-  }
-  
-  interface SampleData {
-      name:   string;
-      age:    number;
-      email:  string;
-      active: boolean;
-  }
-  
-  interface Schema {
-      schema:     string;
-      title:      string;
-      type:       string;
+      schema:     null | string;
+      title:      null | string;
+      type:       null | string;
       properties: Properties;
-      required:   string[];
+      required:   (null | string)[];
   }
   
   interface Properties {
@@ -40,12 +40,12 @@ declare module '@apiverve/jsonschemagenerator' {
   }
   
   interface Active {
-      type: string;
+      type: null | string;
   }
   
   interface Email {
-      type:   string;
-      format: string;
+      type:   null | string;
+      format: null | string;
   }
 
   export default class jsonschemageneratorWrapper {
