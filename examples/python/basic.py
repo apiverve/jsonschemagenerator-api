@@ -14,14 +14,26 @@ API_URL = 'https://api.apiverve.com/v1/jsonschemagenerator'
 
 def call_jsonschemagenerator_api():
     """
-    Make a GET request to the JSON Schema Generator API
+    Make a POST request to the JSON Schema Generator API
     """
     try:
+        # Request body
+        request_body &#x3D; {
+    &#x27;json&#x27;: {
+        &#x27;name&#x27;: &#x27;John Doe&#x27;,
+        &#x27;age&#x27;: 30,
+        &#x27;email&#x27;: &#x27;john@example.com&#x27;,
+        &#x27;active&#x27;: true
+    },
+    &#x27;title&#x27;: &#x27;User Schema&#x27;
+}
+
         headers = {
-            'x-api-key': API_KEY
+            'x-api-key': API_KEY,
+            'Content-Type': 'application/json'
         }
 
-        response = requests.get(API_URL, headers=headers)
+        response = requests.post(API_URL, headers=headers, json=request_body)
 
         # Raise exception for HTTP errors
         response.raise_for_status()
