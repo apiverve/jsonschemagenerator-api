@@ -140,38 +140,30 @@ async function makeRequest() {
   "status": "ok",
   "error": null,
   "data": {
-    "schema": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "title": "User Schema",
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "age": {
-          "type": "integer"
-        },
-        "email": {
-          "type": "string",
-          "format": "email"
-        },
-        "active": {
-          "type": "boolean"
-        }
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "User Schema",
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string"
       },
-      "required": [
-        "name",
-        "age",
-        "email",
-        "active"
-      ]
+      "age": {
+        "type": "integer"
+      },
+      "email": {
+        "type": "string",
+        "format": "email"
+      },
+      "active": {
+        "type": "boolean"
+      }
     },
-    "sample_data": {
-      "name": "John Doe",
-      "age": 30,
-      "email": "john@example.com",
-      "active": true
-    }
+    "required": [
+      "name",
+      "age",
+      "email",
+      "active"
+    ]
   }
 }
 ```
