@@ -209,11 +209,51 @@ x-api-key: YOUR_API_KEY_HERE
 Get your API key: [https://apiverve.com](https://apiverve.com)
 
 ### Response Format
-All responses are JSON with this structure:
+
+Every APIVerve endpoint returns the same envelope — check `status`, then read `data`:
+
 ```json
 {
   "status": "ok",
+  "error": null,
   "data": { ... }
+}
+```
+
+### Example Response
+
+A real response from the JSON Schema Generator API:
+
+```json
+{
+  "status": "ok",
+  "error": null,
+  "data": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "User Schema",
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "age": {
+        "type": "integer"
+      },
+      "email": {
+        "type": "string",
+        "format": "email"
+      },
+      "active": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "name",
+      "age",
+      "email",
+      "active"
+    ]
+  }
 }
 ```
 
