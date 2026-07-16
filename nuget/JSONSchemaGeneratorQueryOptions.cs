@@ -14,7 +14,7 @@ namespace APIVerve.API.JSONSchemaGenerator
         /// The sample JSON data to generate a schema from
         /// </summary>
         [JsonProperty("json")]
-        public string Json { get; set; }
+        public object Json { get; set; }
 
         /// <summary>
         /// The title for the generated schema (default: 'Generated Schema')
