@@ -25,36 +25,15 @@ namespace APIVerve.API.JSONSchemaGenerator
 
         [JsonProperty("data")]
         public Data Data { get; set; }
+
+        [JsonProperty("premium")]
+        public Premium Premium { get; set; }
     }
 
     public partial class Data
     {
-        [JsonProperty("schema")]
-        public Schema Schema { get; set; }
-
-        [JsonProperty("sample_data")]
-        public SampleData SampleData { get; set; }
-    }
-
-    public partial class SampleData
-    {
-        [JsonProperty("name")]
-        public string Name { get; set; }
-
-        [JsonProperty("age")]
-        public long Age { get; set; }
-
-        [JsonProperty("email")]
-        public string Email { get; set; }
-
-        [JsonProperty("active")]
-        public bool Active { get; set; }
-    }
-
-    public partial class Schema
-    {
         [JsonProperty("$schema")]
-        public Uri SchemaSchema { get; set; }
+        public Uri Schema { get; set; }
 
         [JsonProperty("title")]
         public string Title { get; set; }
@@ -66,7 +45,7 @@ namespace APIVerve.API.JSONSchemaGenerator
         public Properties Properties { get; set; }
 
         [JsonProperty("required")]
-        public string[] SchemaRequired { get; set; }
+        public string[] DataRequired { get; set; }
     }
 
     public partial class Properties
@@ -97,5 +76,17 @@ namespace APIVerve.API.JSONSchemaGenerator
 
         [JsonProperty("format")]
         public string Format { get; set; }
+    }
+
+    public partial class Premium
+    {
+        [JsonProperty("message")]
+        public string Message { get; set; }
+
+        [JsonProperty("upgrade_url")]
+        public Uri UpgradeUrl { get; set; }
+
+        [JsonProperty("locked_fields")]
+        public string[] LockedFields { get; set; }
     }
 }
