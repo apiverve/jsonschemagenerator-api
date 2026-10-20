@@ -2,9 +2,10 @@ openapi: 3.0.4
 info:
   title: JSON Schema Generator
   description: >-
-    JSON Schema Generator is a tool for automatically generating JSON schemas
-    from sample JSON data. It creates Draft-07 compatible schemas with type
-    inference and format detection.
+    JSON Schema Generator is a JSON to JSON Schema API: it inspects sample JSON
+    payloads and generates Draft-07 JSON Schema definitions with inferred types
+    and property formats. It identifies formats like emails and dates, applies
+    custom titles, and lists all properties as required.
   termsOfService: https://apiverve.com/terms/
   contact:
     name: APIVerve Support
@@ -19,7 +20,7 @@ servers:
 paths:
   /v1/jsonschemagenerator:
     post:
-      summary: Generate JSON Schema
+      summary: JSON Schema Generator
       description: Generate a JSON schema from sample JSON data
       operationId: jsonschemagenerator
       parameters: []
