@@ -1,13 +1,12 @@
 JSON Schema Generator API
 ============
 
-JSON Schema Generator is a tool for automatically generating JSON schemas from sample JSON data. It creates Draft-07 compatible schemas with type inference and format detection.
+JSON Schema Generator is a JSON to JSON Schema API: it inspects sample JSON payloads and generates Draft-07 JSON Schema definitions with inferred types and property formats. It identifies formats like emails and dates, applies custom titles, and lists all properties as required.
 
-![Build Status](https://img.shields.io/badge/build-passing-green)
-![Code Climate](https://img.shields.io/badge/maintainability-B-purple)
-![Prod Ready](https://img.shields.io/badge/production-ready-blue)
 
-This is a Python API Wrapper for the [JSON Schema Generator API](https://apiverve.com/marketplace/jsonschemagenerator?utm_source=pypi&utm_medium=readme)
+[![PyPI version](https://img.shields.io/pypi/v/apiverve-jsonschemagenerator.svg)](https://pypi.org/project/apiverve-jsonschemagenerator/)
+
+This is a Python wrapper for the [JSON Schema Generator API](https://apiverve.com/marketplace/jsonschemagenerator?utm_source=pypi&utm_medium=referral&utm_content=readme)
 
 ---
 
@@ -29,8 +28,8 @@ pip3 install apiverve-jsonschemagenerator
 
 ## Configuration
 
-Before using the jsonschemagenerator API client, you have to setup your account and obtain your API Key.
-You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=pypi&utm_medium=readme)
+Before using the JSON Schema Generator API client, you have to setup your account and obtain your API Key.
+You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=pypi&utm_medium=referral&utm_content=readme)
 
 ---
 
@@ -63,7 +62,7 @@ except Exception as e:
 
 ## Usage
 
-The JSON Schema Generator API documentation is found here: [https://docs.apiverve.com/ref/jsonschemagenerator](https://docs.apiverve.com/ref/jsonschemagenerator?utm_source=pypi&utm_medium=readme).
+The JSON Schema Generator API documentation is found here: [https://docs.apiverve.com/ref/jsonschemagenerator](https://docs.apiverve.com/ref/jsonschemagenerator?utm_source=pypi&utm_medium=referral&utm_content=readme).
 You can find parameters, example responses, and status codes documented here.
 
 ### Setup
@@ -108,38 +107,30 @@ print(result)
   "status": "ok",
   "error": null,
   "data": {
-    "schema": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "title": "User Schema",
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "age": {
-          "type": "integer"
-        },
-        "email": {
-          "type": "string",
-          "format": "email"
-        },
-        "active": {
-          "type": "boolean"
-        }
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "User Schema",
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string"
       },
-      "required": [
-        "name",
-        "age",
-        "email",
-        "active"
-      ]
+      "age": {
+        "type": "integer"
+      },
+      "email": {
+        "type": "string",
+        "format": "email"
+      },
+      "active": {
+        "type": "boolean"
+      }
     },
-    "sample_data": {
-      "name": "John Doe",
-      "age": 30,
-      "email": "john@example.com",
-      "active": true
-    }
+    "required": [
+      "name",
+      "age",
+      "email",
+      "active"
+    ]
   }
 }
 ```
@@ -282,7 +273,7 @@ finally:
 
 ## Customer Support
 
-Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=pypi&utm_medium=readme).
+Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=pypi&utm_medium=referral&utm_content=readme).
 
 ---
 
@@ -293,12 +284,12 @@ Stay up to date by following [@apiverveHQ](https://twitter.com/apiverveHQ) on Tw
 
 ## Legal
 
-All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=pypi&utm_medium=readme) and all legal documents and agreements.
+All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=pypi&utm_medium=referral&utm_content=readme) and all legal documents and agreements.
 
 ---
 
 ## License
-Licensed under the The MIT License (MIT)
+Licensed under the MIT License (MIT)
 
 Copyright (&copy;) 2026 APIVerve, and EvlarSoft LLC
 
