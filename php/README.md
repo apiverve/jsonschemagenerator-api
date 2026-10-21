@@ -1,6 +1,6 @@
 # JSON Schema Generator API - PHP Package
 
-JSON Schema Generator is a tool for automatically generating JSON schemas from sample JSON data. It creates Draft-07 compatible schemas with type inference and format detection.
+JSON Schema Generator is a JSON to JSON Schema API: it inspects sample JSON payloads and generates Draft-07 JSON Schema definitions with inferred types and property formats. It identifies formats like emails and dates, applies custom titles, and lists all properties as required.
 
 ## Installation
 
@@ -107,11 +107,11 @@ $client = new Client(
 
 ## Documentation
 
-For more information, visit the [API Documentation](https://docs.apiverve.com/ref/jsonschemagenerator?utm_source=packagist&utm_medium=readme).
+For more information, visit the [API Documentation](https://docs.apiverve.com/ref/jsonschemagenerator?utm_source=packagist&utm_medium=referral&utm_content=readme).
 
 ## Support
 
-- Website: [https://apiverve.com/marketplace/jsonschemagenerator?utm_source=php&utm_medium=readme](https://apiverve.com/marketplace/jsonschemagenerator?utm_source=php&utm_medium=readme)
+- Website: [https://apiverve.com/marketplace/jsonschemagenerator?utm_source=php&utm_medium=referral&utm_content=readme](https://apiverve.com/marketplace/jsonschemagenerator?utm_source=php&utm_medium=referral&utm_content=readme)
 - Email: hello@apiverve.com
 
 ## License

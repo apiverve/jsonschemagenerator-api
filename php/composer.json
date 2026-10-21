@@ -1,7 +1,7 @@
 {
     "name": "apiverve/jsonschemagenerator",
-    "description": "JSON Schema Generator is a tool for automatically generating JSON schemas from sample JSON data. It creates Draft-07 compatible schemas with type inference and format detection.",
-    "version": "1.2.0",
+    "description": "JSON Schema Generator is a JSON to JSON Schema API: it inspects sample JSON payloads and generates Draft-07 JSON Schema definitions with inferred types and property formats. It identifies formats like emails and dates, applies custom titles, and lists all properties as required.",
+    "version": "1.2.2",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -16,12 +16,12 @@
         "apiverve",
         "jsonschemagenerator",
         "json schema",
-        "schema generator",
-        "json validation",
-        "json structure",
-        "schema creation"
+        "json to json schema",
+        "json schema generator",
+        "create a json schema",
+        "generate json schema from json"
     ],
-    "homepage": "https://apiverve.com/marketplace/jsonschemagenerator?utm_source=php&utm_medium=homepage",
+    "homepage": "https://apiverve.com/marketplace/jsonschemagenerator?utm_source=php&utm_medium=referral&utm_content=homepage",
     "support": {
         "email": "hello@apiverve.com",
         "docs": "https://docs.apiverve.com/ref/jsonschemagenerator",
