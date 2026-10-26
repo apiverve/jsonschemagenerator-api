@@ -1,6 +1,6 @@
 {
   "name": "@apiverve/jsonschemagenerator",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "JSON Schema Generator is a JSON to JSON Schema API: it inspects sample JSON payloads and generates Draft-07 JSON Schema definitions with inferred types and property formats. It identifies formats like emails and dates, applies custom titles, and lists all properties as required.",
   "main": "index.js",
   "types": "index.d.ts",
