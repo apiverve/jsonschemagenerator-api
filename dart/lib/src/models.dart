@@ -6,50 +6,63 @@ class JsonschemageneratorResponse {
   final dynamic error;
   final JsonschemageneratorData? data;
 
+  /// Set only when the current plan locks one or more fields; null otherwise.
+  final PremiumInfo? premium;
+
   JsonschemageneratorResponse({
     required this.status,
     this.error,
     this.data,
+    this.premium,
   });
 
   factory JsonschemageneratorResponse.fromJson(Map<String, dynamic> json) => JsonschemageneratorResponse(
     status: json['status'] as String? ?? '',
     error: json['error'],
     data: json['data'] != null ? JsonschemageneratorData.fromJson(json['data']) : null,
+    premium: json['premium'] != null ? PremiumInfo.fromJson(json['premium']) : null,
   );
 
   Map<String, dynamic> toJson() => {
     'status': status,
     if (error != null) 'error': error,
     if (data != null) 'data': data,
+    if (premium != null) 'premium': premium!.toJson(),
+  };
+}
+
+/// Describes fields the current plan does not unlock. Locked fields arrive as null
+/// in [data], and [lockedFields] names them (nested ones use dot paths).
+class PremiumInfo {
+  final String? message;
+  final String? upgradeUrl;
+  final List<String>? lockedFields;
+
+  PremiumInfo({this.message, this.upgradeUrl, this.lockedFields});
+
+  factory PremiumInfo.fromJson(Map<String, dynamic> json) => PremiumInfo(
+    message: json['message'] as String?,
+    upgradeUrl: json['upgrade_url'] as String?,
+    lockedFields: (json['locked_fields'] as List?)?.map((e) => e.toString()).toList(),
+  );
+
+  Map<String, dynamic> toJson() => {
+    if (message != null) 'message': message,
+    if (upgradeUrl != null) 'upgrade_url': upgradeUrl,
+    if (lockedFields != null) 'locked_fields': lockedFields,
   };
 }
 
 /// Response data for the JSON Schema Generator API.
 
 class JsonschemageneratorData {
-  JsonschemageneratorDataSchema? schema;
-  JsonschemageneratorDataSampleData? sampleData;
-
-  JsonschemageneratorData({
-    this.schema,
-    this.sampleData,
-  });
-
-  factory JsonschemageneratorData.fromJson(Map<String, dynamic> json) => JsonschemageneratorData(
-      schema: json['schema'] != null ? JsonschemageneratorDataSchema.fromJson(json['schema']) : null,
-      sampleData: json['sample_data'] != null ? JsonschemageneratorDataSampleData.fromJson(json['sample_data']) : null,
-    );
-}
-
-class JsonschemageneratorDataSchema {
   String? $schema;
   String? title;
   String? type;
-  JsonschemageneratorDataSchemaProperties? properties;
+  JsonschemageneratorDataProperties? properties;
   List<String>? required;
 
-  JsonschemageneratorDataSchema({
+  JsonschemageneratorData({
     this.$schema,
     this.title,
     this.type,
@@ -57,105 +70,84 @@ class JsonschemageneratorDataSchema {
     this.required,
   });
 
-  factory JsonschemageneratorDataSchema.fromJson(Map<String, dynamic> json) => JsonschemageneratorDataSchema(
+  factory JsonschemageneratorData.fromJson(Map<String, dynamic> json) => JsonschemageneratorData(
       $schema: json['$schema'],
       title: json['title'],
       type: json['type'],
-      properties: json['properties'] != null ? JsonschemageneratorDataSchemaProperties.fromJson(json['properties']) : null,
+      properties: json['properties'] != null ? JsonschemageneratorDataProperties.fromJson(json['properties']) : null,
       required: (json['required'] as List?)?.cast<String>(),
     );
 }
 
-class JsonschemageneratorDataSchemaProperties {
-  JsonschemageneratorDataSchemaPropertiesName? name;
-  JsonschemageneratorDataSchemaPropertiesAge? age;
-  JsonschemageneratorDataSchemaPropertiesEmail? email;
-  JsonschemageneratorDataSchemaPropertiesActive? active;
+class JsonschemageneratorDataProperties {
+  JsonschemageneratorDataPropertiesName? name;
+  JsonschemageneratorDataPropertiesAge? age;
+  JsonschemageneratorDataPropertiesEmail? email;
+  JsonschemageneratorDataPropertiesActive? active;
 
-  JsonschemageneratorDataSchemaProperties({
+  JsonschemageneratorDataProperties({
     this.name,
     this.age,
     this.email,
     this.active,
   });
 
-  factory JsonschemageneratorDataSchemaProperties.fromJson(Map<String, dynamic> json) => JsonschemageneratorDataSchemaProperties(
-      name: json['name'] != null ? JsonschemageneratorDataSchemaPropertiesName.fromJson(json['name']) : null,
-      age: json['age'] != null ? JsonschemageneratorDataSchemaPropertiesAge.fromJson(json['age']) : null,
-      email: json['email'] != null ? JsonschemageneratorDataSchemaPropertiesEmail.fromJson(json['email']) : null,
-      active: json['active'] != null ? JsonschemageneratorDataSchemaPropertiesActive.fromJson(json['active']) : null,
+  factory JsonschemageneratorDataProperties.fromJson(Map<String, dynamic> json) => JsonschemageneratorDataProperties(
+      name: json['name'] != null ? JsonschemageneratorDataPropertiesName.fromJson(json['name']) : null,
+      age: json['age'] != null ? JsonschemageneratorDataPropertiesAge.fromJson(json['age']) : null,
+      email: json['email'] != null ? JsonschemageneratorDataPropertiesEmail.fromJson(json['email']) : null,
+      active: json['active'] != null ? JsonschemageneratorDataPropertiesActive.fromJson(json['active']) : null,
     );
 }
 
-class JsonschemageneratorDataSchemaPropertiesName {
+class JsonschemageneratorDataPropertiesName {
   String? type;
 
-  JsonschemageneratorDataSchemaPropertiesName({
+  JsonschemageneratorDataPropertiesName({
     this.type,
   });
 
-  factory JsonschemageneratorDataSchemaPropertiesName.fromJson(Map<String, dynamic> json) => JsonschemageneratorDataSchemaPropertiesName(
+  factory JsonschemageneratorDataPropertiesName.fromJson(Map<String, dynamic> json) => JsonschemageneratorDataPropertiesName(
       type: json['type'],
     );
 }
 
-class JsonschemageneratorDataSchemaPropertiesAge {
+class JsonschemageneratorDataPropertiesAge {
   String? type;
 
-  JsonschemageneratorDataSchemaPropertiesAge({
+  JsonschemageneratorDataPropertiesAge({
     this.type,
   });
 
-  factory JsonschemageneratorDataSchemaPropertiesAge.fromJson(Map<String, dynamic> json) => JsonschemageneratorDataSchemaPropertiesAge(
+  factory JsonschemageneratorDataPropertiesAge.fromJson(Map<String, dynamic> json) => JsonschemageneratorDataPropertiesAge(
       type: json['type'],
     );
 }
 
-class JsonschemageneratorDataSchemaPropertiesEmail {
+class JsonschemageneratorDataPropertiesEmail {
   String? type;
   String? format;
 
-  JsonschemageneratorDataSchemaPropertiesEmail({
+  JsonschemageneratorDataPropertiesEmail({
     this.type,
     this.format,
   });
 
-  factory JsonschemageneratorDataSchemaPropertiesEmail.fromJson(Map<String, dynamic> json) => JsonschemageneratorDataSchemaPropertiesEmail(
+  factory JsonschemageneratorDataPropertiesEmail.fromJson(Map<String, dynamic> json) => JsonschemageneratorDataPropertiesEmail(
       type: json['type'],
       format: json['format'],
     );
 }
 
-class JsonschemageneratorDataSchemaPropertiesActive {
+class JsonschemageneratorDataPropertiesActive {
   String? type;
 
-  JsonschemageneratorDataSchemaPropertiesActive({
+  JsonschemageneratorDataPropertiesActive({
     this.type,
   });
 
-  factory JsonschemageneratorDataSchemaPropertiesActive.fromJson(Map<String, dynamic> json) => JsonschemageneratorDataSchemaPropertiesActive(
+  factory JsonschemageneratorDataPropertiesActive.fromJson(Map<String, dynamic> json) => JsonschemageneratorDataPropertiesActive(
       type: json['type'],
-    );
-}
-
-class JsonschemageneratorDataSampleData {
-  String? name;
-  int? age;
-  String? email;
-  bool? active;
-
-  JsonschemageneratorDataSampleData({
-    this.name,
-    this.age,
-    this.email,
-    this.active,
-  });
-
-  factory JsonschemageneratorDataSampleData.fromJson(Map<String, dynamic> json) => JsonschemageneratorDataSampleData(
-      name: json['name'],
-      age: json['age'],
-      email: json['email'],
-      active: json['active'],
     );
 }
 

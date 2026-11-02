@@ -46,7 +46,7 @@ final _formatPatterns = {
 
 /// JSON Schema Generator API client.
 ///
-/// For more information, visit: https://apiverve.com/marketplace/jsonschemagenerator?utm_source=dart&utm_medium=readme
+/// For more information, visit: https://apiverve.com/marketplace/jsonschemagenerator?utm_source=dart&utm_medium=referral&utm_content=readme
 ///
 /// Parameters:
 /// * [json] (required) - The sample JSON data to generate a schema from
